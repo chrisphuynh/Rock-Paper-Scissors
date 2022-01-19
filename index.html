@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick='play()'>Click to Play!</button>
+
+    <script>
+        let playerScore = 0;
+        let computerScore = 0;
+
+        function computerPlay() {
+            let hand = ["Rock", "Paper", "Scissor"]
+            let randomHand = hand[Math.floor(Math.random() * hand.length)];
+            return(randomHand);
+        }
+
+        function playRound(playerSelection, computerSelection)  {
+            if (playerSelection == "Rock" && computerSelection == "Paper") {
+                computerScore++;
+                return("Computer wins! The score is: Computer " + computerScore + " || Player " + playerScore);
+            }
+            else if (playerSelection == "Rock" && computerSelection == "Scissor") {
+                playerScore++;
+                return("Player wins! The score is: Computer " + computerScore + " || Player " + playerScore);
+            }
+            else if (playerSelection == "Scissors" && computerSelection == "Paper") {
+                playerScore++;
+                return("Player wins! The score is: Computer " + computerScore + " || Player " + playerScore);
+            }
+            else if (playerSelection == "Scissors" && computerSelection == "Rock") {
+                computerScore++;
+                return("Computer wins! The score is: Computer " + computerScore + " || Player " + playerScore);
+            }
+            else if (playerSelection == "Paper" && computerSelection == "Scissor") {
+                playerScore++;
+                return("Player wins! The score is: Computer " + computerScore + " || Player " + playerScore);
+            }
+            else if (playerSelection == "Paper" && computerSelection == "Rock") {
+                computerScore++;
+                return("Computer wins! The score is: Computer " + computerScore + " || Player " + playerScore);
+            }
+            else {
+                return("It's a tie! The score is: Computer " + computerScore + " || Player " + playerScore);
+            }
+        }
+
+        function play() {
+            let playerSelect = prompt("Please enter Rock, Paper, or Scissors", computerPlay());
+            alert(playRound(playerSelect, computerPlay()));
+
+            if (confirm("Would you like to play again?")) {
+                play();
+            }
+            else {
+                return;
+            }
+        }
+
+
+
+        
+    </script>
+</body>
+</html>
